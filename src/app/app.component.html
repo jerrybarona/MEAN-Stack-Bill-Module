@@ -1,0 +1,63 @@
+<div id="bodydiv">
+<div class="header-nav">
+		<div class="container">
+			<div class="header">
+				<div class="head-logo">
+					<a href="index.html"><img src="images/logo.png" alt="que paso con la imagen" /></a>
+				</div>
+        <button id="btntest" (click)="showAlert()">Try it</button>
+
+				<div class="header-info-right">
+					<div class="header cbp-spmenu-push">
+						<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
+								<a class="active" href="index.html">WHAT WE DO</a>
+								<a href="work.html">OUR WORK</a>
+								<a href="clients.html">CLIENTS</a>
+								<a href="team.html">TEAM</a>
+								<a href="offices.html">OFFICES</a>
+								<a href="404.html">EXPERIMANTES</a>
+						</nav>
+						<!--script-nav -->
+						<script>
+							$("span.menu").click(function(){
+								$("ul.navigatoin").slideToggle("300" , function(){
+								});
+							});
+						</script>
+						<div class="clearfix"> </div>
+						<!-- /script-nav -->
+										<div class="main">
+											<section class="buttonset">
+												<button id="showRightPush" ><img src="images/menu.png" /></button>
+											</section>
+										</div>
+										<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
+										<script src="js/classie.js"></script>
+										<script>
+											var	menuRight = document.getElementById( 'cbp-spmenu-s2' ),
+												showRightPush = document.getElementById( 'showRightPush' ),
+												//body = document.body;
+                        body = document.getElementById( 'bodydiv' );
+
+											showRightPush.onclick = function() {
+												classie.toggle( this, 'active' );
+												classie.toggle( body, 'cbp-spmenu-push-toleft' );
+												classie.toggle( menuRight, 'cbp-spmenu-open' );
+												disableOther( 'showRightPush' );
+											};
+										</script>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+
+<app-contacts></app-contacts>
+</div>
+<router-outlet></router-outlet>
+<!-- <script>
+function myFunction() {
+    alert("I am an alert box!");
+}
+</script> -->

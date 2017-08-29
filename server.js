@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
-
+const config = require('./config/database');
 
 // Get our API routes
 const api = require('./server/routes/api');
@@ -14,11 +14,13 @@ const api = require('./server/routes/api');
 const app = express();
 
 // connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/contactlist');
+mongoose.Promise = global.Promise;
+// mongoose.connect('mongodb://localhost:27017/contactlist');
+mongoose.connect(config.uri + config.db);
 
 //on successful connection say something
 mongoose.connection.on('connected', () => {
-  console.log('Connected to database mongodb @ 27017');
+  console.log('Connected to database ' + config.db + ' @ 27017');
 });
 
 mongoose.connection.on('error', (err) => {
